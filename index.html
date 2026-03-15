@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Jagrati ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffe6e6; /* Light pink romantic background */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            color: #d63031;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yesBtn {
+            background-color: #ff7675;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+        #noBtn {
+            background-color: #b2bec3;
+            color: white;
+        }
+        .celebration {
+            font-size: 50px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <h1>Hi Jagrati... ❤️</h1>
+        <p>Mere paas ek chota sa sawal tha tumhare liye...</p>
+        <p><b>Will you be mine?</b></p>
+
+        <div class="btn-container">
+            <button id="yesBtn" onclick="saidYes()">Yes!</button>
+            <button id="noBtn" onclick="saidNo()">No</button>
+        </div>
+    </div>
+
+    <script>
+        let noClickCount = 0;
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+
+        // Jab wo YES dabayegi
+        function saidYes() {
+            document.getElementById('mainContainer').innerHTML = `
+                <h1>Yayyyyy! 🎉</h1>
+                <p>I knew it, Jagrati! I love you! ❤️</p>
+                <div class="celebration">🥰❤️✨</div>
+            `;
+        }
+
+        // Jab wo NO dabayegi
+        function saidNo() {
+            noClickCount++;
+            if (noClickCount === 1) {
+                noBtn.innerText = "Are you sure?";
+                yesBtn.style.transform = "scale(1.2)";
+            } else if (noClickCount === 2) {
+                noBtn.innerText = "Ek baar fir soch lo!";
+                yesBtn.style.transform = "scale(1.5)";
+            } else if (noClickCount === 3) {
+                noBtn.innerText = "Maan jao na 🥺";
+                yesBtn.style.transform = "scale(1.8)";
+            } else {
+                noBtn.style.display = 'none'; // No option gayab!
+                yesBtn.style.transform = "scale(2.2)";
+                yesBtn.innerText = "YES bolna hi padega! ❤️";
+            }
+        }
+    </script>
+</body>
+</html>
